@@ -1,5 +1,9 @@
 package sample.Controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -38,6 +42,11 @@ import javafx.geometry.*;
 import javafx.scene.control.*;
 
 public class LoginActivity extends Application {
+    @FXML private Text actiontarget;
+
+    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
+        actiontarget.setText("Sign in button pressed");
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
