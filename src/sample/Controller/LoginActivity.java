@@ -2,6 +2,7 @@ package sample.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 import javafx.application.Application;
@@ -13,18 +14,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.Group;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+
+import java.util.HashMap;
 import java.util.Random;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -44,21 +41,30 @@ import javafx.scene.control.*;
 public class LoginActivity extends Application {
     @FXML private Text actiontarget;
 
+   //Temporary code to show button was pressed
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         actiontarget.setText("Sign in button pressed");
     }
 
+    //Code to draw the window with the chosen scene
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
-
         Scene scene = new Scene(root, 300, 275);
 
-        primaryStage.setTitle("FXML Welcome");
+        ScreenController screenController = new ScreenController(scene);
+
+        screenController.addScreen("Login",
+                FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml")));
+        screenController.addScreen("Welcome",
+                FXMLLoader.load(getClass().getResource("../View/Welcome.fxml")));
+        screenController.activate("Welcome");
+        //primaryStage.setTitle("FXML Welcome");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
+    //Launches the window
     public static void main(String[] args) {
         launch(args);
     }
