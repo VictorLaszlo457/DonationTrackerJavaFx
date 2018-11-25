@@ -40,10 +40,25 @@ import javafx.scene.control.*;
 
 public class LoginActivity extends Application {
     @FXML private Text actiontarget;
+    @FXML private Button registration, login;
+    @FXML private Stage window;
 
-   //Temporary code to show button was pressed
+    public LoginActivity() throws IOException {
+    }
+
+    //Temporary code to show button was pressed
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         actiontarget.setText("Sign in button pressed");
+    }
+
+    @FXML protected void handleRegistrationButtonAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
+        Scene scene = new Scene(root, 300, 275);
+        Stage stage = (Stage) registration.getScene().getWindow();
+
+        actiontarget.setText("Registration Pressed");
+        stage.setScene(scene);
+        stage.show();
     }
 
     //Code to draw the window with the chosen scene
@@ -51,15 +66,15 @@ public class LoginActivity extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
         Scene scene = new Scene(root, 300, 275);
-
         ScreenController screenController = new ScreenController(scene);
 
         screenController.addScreen("Login",
                 FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml")));
         screenController.addScreen("Welcome",
                 FXMLLoader.load(getClass().getResource("../View/Welcome.fxml")));
+
+        //Screen currently being accessed
         screenController.activate("Welcome");
-        //primaryStage.setTitle("FXML Welcome");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
