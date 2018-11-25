@@ -12,7 +12,7 @@
            xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
-    <Text text="Welcome"
+    <Text text="Welcome New User! Please enter user info"
           GridPane.columnIndex="0" GridPane.rowIndex="0"
           GridPane.columnSpan="2"/>
 
@@ -30,8 +30,14 @@
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In"
+        <Button text="Create User"
                 onAction="#handleSubmitButtonAction"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button fx:id="cancel" text="Cancel"
+                onAction="#handleCancelButtonAction"/>
     </HBox>
 
     <Text fx:id="actiontarget"

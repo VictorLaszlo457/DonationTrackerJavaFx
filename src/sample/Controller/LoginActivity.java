@@ -40,23 +40,39 @@ import javafx.scene.control.*;
 
 public class LoginActivity extends Application {
     @FXML private Text actiontarget;
-    @FXML private Button registration, login;
+    @FXML private Button registration, login, cancel;
     @FXML private Stage window;
 
     public LoginActivity() throws IOException {
     }
 
     //Temporary code to show button was pressed
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
-        actiontarget.setText("Sign in button pressed");
+    @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
+        Scene scene = new Scene(root, 300, 275);
+        Stage stage = (Stage) login.getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.show();
     }
 
+    //Temporary code to show button was pressed
+    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
+        Scene scene = new Scene(root, 300, 275);
+        Stage stage = (Stage) cancel.getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    //Code to handle the registration button being pressed
     @FXML protected void handleRegistrationButtonAction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../View/RegistrationPage.fxml"));
         Scene scene = new Scene(root, 300, 275);
         Stage stage = (Stage) registration.getScene().getWindow();
 
-        actiontarget.setText("Registration Pressed");
         stage.setScene(scene);
         stage.show();
     }
