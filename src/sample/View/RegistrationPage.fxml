@@ -5,14 +5,14 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+
 <?import javafx.scene.text.Text?>
-
+<?import javafx.geometry.Insets?>
 <GridPane fx:controller="sample.Controller.LoginActivity"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
-    <Text text="Welcome"
+    <Text text="Welcome New User! Please enter user info"
           GridPane.columnIndex="0" GridPane.rowIndex="0"
           GridPane.columnSpan="2"/>
 
@@ -30,8 +30,8 @@
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In"
-                onAction="#handleRegistrationButtonAction"/>
+        <Button text="Create User"
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
@@ -44,6 +44,4 @@
           GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
 </GridPane>
-
-
 
