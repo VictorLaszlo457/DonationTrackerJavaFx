@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<GridPane fx:controller="sample.Controller.LoginActivity"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Text text="Donation Tracker"
+          GridPane.columnIndex="4" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <!--<Label text="User Name:"-->
+           <!--GridPane.columnIndex="0" GridPane.rowIndex="1"/>-->
+
+    <!--<TextField fx:id="usernameField"-->
+               <!--GridPane.columnIndex="1" GridPane.rowIndex="1"/>-->
+
+    <!--<Label text="Password:"-->
+           <!--GridPane.columnIndex="0" GridPane.rowIndex="2"/>-->
+
+    <!--<PasswordField fx:id="passwordField"-->
+                   <!--GridPane.columnIndex="1" GridPane.rowIndex="2"/>-->
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="3" GridPane.rowIndex="2">
+        <Button fx:id="manageAccount" text="Manage Account"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button fx:id="addDonation" text="Add Donation"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="7" GridPane.rowIndex="5">
+        <Button fx:id="search" text="Search for Donation"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="7" GridPane.rowIndex="3">
+        <Button fx:id="readLocation" text="Read Location"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Button fx:id="mapView" text="Map View"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="3" GridPane.rowIndex="6">
+        <Button fx:id="statistics" text="Statistics"
+                onAction="#onLoginPressed"/>
+    </HBox>
+
+    <Text fx:id="actiontarget"
+          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+</GridPane>

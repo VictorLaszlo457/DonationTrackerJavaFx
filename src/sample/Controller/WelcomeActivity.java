@@ -42,15 +42,15 @@ public class WelcomeActivity extends Application {
     }
 
     //Cancel button
-    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
-        //If you hit the cancel button, return to the welcome page
-        Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        Stage stage = (Stage) cancel.getScene().getWindow();
-        //set the scene upon clicking the cancel button
-        stage.setScene(scene);
-        stage.show();
-    }
+//    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
+//        //If you hit the cancel button, return to the welcome page
+//        Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
+//        Scene scene = new Scene(root, 300, 275);
+//        Stage stage = (Stage) cancel.getScene().getWindow();
+//        //set the scene upon clicking the cancel button
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     //Start the GUI and display the first screen
     @Override

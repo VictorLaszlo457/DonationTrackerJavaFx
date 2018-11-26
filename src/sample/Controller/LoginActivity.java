@@ -58,7 +58,7 @@ public class LoginActivity {
     }
 
     public void onLoginPressed() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../View/MainActivity.fxml"));
         name = usernameField.getText();
         password = passwordField.getText();
 
@@ -73,7 +73,7 @@ public class LoginActivity {
             stage.setScene(scene);
             stage.show();
         } else {
-            actiontarget.setText("Sign in button pressed");
+            actiontarget.setText("Username or Password is incorrect");
         }
 
     }
