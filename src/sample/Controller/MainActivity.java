@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 

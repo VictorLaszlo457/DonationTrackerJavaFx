@@ -20,6 +20,7 @@ import javafx.scene.Group;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
+import sample.Model.User;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -37,12 +38,27 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.*;
 import javafx.geometry.*;
 import javafx.scene.control.*;
+import sample.Model.UserSet;
+
 
 public class RegistrationActivity {
     public static String name = "";
     public static String password = "";
-    @FXML private TextField usernameField, passwordField;
+    public static String type = "";
+    @FXML private TextField usernameField, passwordField, typeField;
     @FXML private Button cancel, register;
+    @FXML private Text actiontarget;
+
+    private UserSet userSet;
+    //setUserSet(UserSet.getInstance());
+
+    /**
+     * Sets the UserSet to be used by this activity
+     * @param userSet an instance of UserModel
+     */
+//    public void setUserSet(UserSet userSet) {
+//        this.userSet = userSet;
+//    }
 
     //Cancel button
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
@@ -59,14 +75,31 @@ public class RegistrationActivity {
         Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
         name = usernameField.getText();
         password = passwordField.getText();
+        type = typeField.getText();
         System.out.println("username: " + name);
         System.out.println("password: " + password);
+        System.out.println("User type: " + type);
 
-        Scene scene = new Scene(root, 300, 275);
-        Stage stage = (Stage) register.getScene().getWindow();
-        //set the scene upon clicking the cancel button
-        stage.setScene(scene);
-        stage.show();
+        if (name.equals("") || password.equals("")) {
+            name = "";
+            password = "";
+            actiontarget.setText("Please enter a username and password");
+        }
+//        else if (!type.equalsIgnoreCase("Admin")
+//                || !type.equalsIgnoreCase("User")
+//                || !type.equalsIgnoreCase("Employee") ) {
+//            type = "";
+//            actiontarget.setText("User type must be Admin, User, or Employee");
+//        }
+        else {
+            //userSet.addUser(name, password, type);
+            Scene scene = new Scene(root, 300, 275);
+            Stage stage = (Stage) register.getScene().getWindow();
+            //set the scene upon clicking the cancel button
+            stage.setScene(scene);
+            stage.show();
+
+        }
     }
 
 }

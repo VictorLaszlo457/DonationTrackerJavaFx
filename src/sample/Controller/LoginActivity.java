@@ -37,6 +37,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.*;
 import javafx.geometry.*;
 import javafx.scene.control.*;
+import sample.Model.User;
+import sample.Model.UserSet;
 
 public class LoginActivity {
 
@@ -45,6 +47,16 @@ public class LoginActivity {
     @FXML private TextField usernameField, passwordField;
     @FXML private Button cancel, login;
     @FXML private Text actiontarget;
+
+    private UserSet userSet;
+
+    /**
+     * Sets the UserSet to be used by this activity
+     * @param userSet an instance of UserModel
+     */
+    public void setUserSet(UserSet userSet) {
+        this.userSet = userSet;
+    }
 
     //Cancel button
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
@@ -62,17 +74,25 @@ public class LoginActivity {
         name = usernameField.getText();
         password = passwordField.getText();
 
-        System.out.println("login username: " + name);
-        System.out.println("login password: " + password);
+        if ((RegistrationActivity.name).equals("")
+                || (RegistrationActivity.password).equals("")) {
+            actiontarget.setText("Must create a user");
+        }
 
-        if (name.equals(RegistrationActivity.name) && password.equals(RegistrationActivity.password)) {
-            Scene scene = new Scene(root, 300, 275);
-            Stage stage = (Stage) login.getScene().getWindow();
-            //set the scene upon clicking the cancel button
-            stage.setScene(scene);
-            stage.show();
-        } else {
-            actiontarget.setText("Username or Password is incorrect");
+
+        //if (userSet.validUser(name, password)) {
+        else {
+            if (name.equals(RegistrationActivity.name) && password.equals(RegistrationActivity.password)) {
+                Scene scene = new Scene(root, 300, 275);
+                Stage stage = (Stage) login.getScene().getWindow();
+                System.out.println("login username: " + name);
+                System.out.println("login password: " + password);
+                //set the scene upon clicking the cancel button
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                actiontarget.setText("Username or Password is incorrect");
+            }
         }
 
     }

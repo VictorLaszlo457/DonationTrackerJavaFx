@@ -28,6 +28,12 @@
     <PasswordField fx:id="passwordField"
                    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
+    <Label text="User Type (Admin,Employee,User):"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <PasswordField fx:id="typeField"
+                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="4">
         <Button fx:id="register" text="Create User"
@@ -41,7 +47,7 @@
     </HBox>
 
     <Text fx:id="actiontarget"
-          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+          GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
 </GridPane>
 
