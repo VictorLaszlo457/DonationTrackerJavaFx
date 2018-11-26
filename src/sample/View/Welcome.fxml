@@ -20,7 +20,7 @@
     <HBox spacing="0" alignment="bottom_right"
           GridPane.columnIndex="0" GridPane.rowIndex="4">
         <Button fx:id="login" text="Login"
-                onAction="#handleSubmitButtonAction"/>
+                onAction="#handleLoginButtonAction"/>
     </HBox>
 
     <HBox spacing="30" alignment="bottom_right"

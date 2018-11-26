@@ -17,14 +17,13 @@ public class WelcomeActivity extends Application {
     @FXML private Text actiontarget;
     @FXML private Button registration, login, cancel;
 
-    //Temporary code to show button was pressed
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
-        //root allows access to the login page when the method is access by clicking the login button
+    @FXML protected void handleLoginButtonAction(ActionEvent event) throws IOException {
+        //root allows access to the registration page when the method is access by clicking the reg. button
         Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
         Scene scene = new Scene(root, 300, 275);
-        Stage stage = (Stage) login.getScene().getWindow();
 
-        //set the scene upon clicking the login button
+        //set the scene upon clicking the registration button
+        Stage stage = (Stage) login.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -40,17 +39,6 @@ public class WelcomeActivity extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-    //Cancel button
-//    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
-//        //If you hit the cancel button, return to the welcome page
-//        Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
-//        Scene scene = new Scene(root, 300, 275);
-//        Stage stage = (Stage) cancel.getScene().getWindow();
-//        //set the scene upon clicking the cancel button
-//        stage.setScene(scene);
-//        stage.show();
-//    }
 
     //Start the GUI and display the first screen
     @Override

@@ -39,8 +39,8 @@ import javafx.geometry.*;
 import javafx.scene.control.*;
 
 public class RegistrationActivity {
-    private String name;
-    private String password;
+    public static String name = "";
+    public static String password = "";
     @FXML private TextField usernameField, passwordField;
     @FXML private Button cancel, register;
 
@@ -68,4 +68,5 @@ public class RegistrationActivity {
         stage.setScene(scene);
         stage.show();
     }
+
 }

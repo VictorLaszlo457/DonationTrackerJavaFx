@@ -65,8 +65,7 @@ public class LoginActivity {
         System.out.println("login username: " + name);
         System.out.println("login password: " + password);
 
-        if (name.equals("user") && password.equals("password")) {
-
+        if (name.equals(RegistrationActivity.name) && password.equals(RegistrationActivity.password)) {
             Scene scene = new Scene(root, 300, 275);
             Stage stage = (Stage) login.getScene().getWindow();
             //set the scene upon clicking the cancel button

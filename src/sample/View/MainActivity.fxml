@@ -8,7 +8,7 @@
 
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
-<GridPane fx:controller="sample.Controller.LoginActivity"
+<GridPane fx:controller="sample.Controller.MainActivity"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
@@ -31,37 +31,43 @@
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="3" GridPane.rowIndex="2">
         <Button fx:id="manageAccount" text="Manage Account"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="3">
         <Button fx:id="addDonation" text="Add Donation"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="7" GridPane.rowIndex="5">
         <Button fx:id="search" text="Search for Donation"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="7" GridPane.rowIndex="3">
         <Button fx:id="readLocation" text="Read Location"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button fx:id="mapView" text="Map View"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
     </HBox>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="3" GridPane.rowIndex="6">
         <Button fx:id="statistics" text="Statistics"
-                onAction="#onLoginPressed"/>
+                onAction="#handleSubmitButtonAction"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="8" GridPane.rowIndex="0">
+        <Button fx:id="logout" text="Sign Out"
+                onAction="#handleSignOutButtonAction"/>
     </HBox>
 
     <Text fx:id="actiontarget"
