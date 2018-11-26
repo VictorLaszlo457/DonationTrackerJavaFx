@@ -5,6 +5,12 @@ import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
 
+/*
+* Class controls which screen is currently being accessed by storing
+* all scenes in a hashmap, declaring 'key' = String 'scene name'
+* and 'Pane' = 'layout'
+ */
+
 public class ScreenController {
     private HashMap<String, Pane> screenMap = new HashMap<>();
     private Scene main;

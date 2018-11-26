@@ -38,13 +38,11 @@ import java.net.*;
 import javafx.geometry.*;
 import javafx.scene.control.*;
 
-public class LoginActivity {
-
+public class RegistrationActivity {
     private String name;
     private String password;
     @FXML private TextField usernameField, passwordField;
-    @FXML private Button cancel, login;
-    @FXML private Text actiontarget;
+    @FXML private Button cancel, register;
 
     //Cancel button
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
@@ -57,24 +55,17 @@ public class LoginActivity {
         stage.show();
     }
 
-    public void onLoginPressed() throws IOException {
+    public void onRegistrationPressed() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
         name = usernameField.getText();
         password = passwordField.getText();
+        System.out.println("username: " + name);
+        System.out.println("password: " + password);
 
-        System.out.println("login username: " + name);
-        System.out.println("login password: " + password);
-
-        if (name.equals("user") && password.equals("password")) {
-
-            Scene scene = new Scene(root, 300, 275);
-            Stage stage = (Stage) login.getScene().getWindow();
-            //set the scene upon clicking the cancel button
-            stage.setScene(scene);
-            stage.show();
-        } else {
-            actiontarget.setText("Sign in button pressed");
-        }
-
+        Scene scene = new Scene(root, 300, 275);
+        Stage stage = (Stage) register.getScene().getWindow();
+        //set the scene upon clicking the cancel button
+        stage.setScene(scene);
+        stage.show();
     }
 }
