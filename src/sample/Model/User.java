@@ -1,6 +1,11 @@
 package sample.Model;
 
 public class User {
+    /** allow us to assign unique id numbers to each student */
+    private static int Next_Id = 0;
+
+    // user's id number
+    private int id;
 
     //user's email
     private String email;
@@ -14,6 +19,17 @@ public class User {
     //Is user account locked?
     private boolean locked;
 
+    /**
+     * Gets user's id
+     * @return id user's id number
+     */
+    public int getId() { return id; }
+
+    /**
+     * Sets user's id
+     * @param id user's id
+     */
+    public void setId(int id) { this.id = id; }
 
     /**
      * Gets user's password
@@ -80,6 +96,7 @@ public class User {
         this.password = password;
         this.type = type;
         this.locked = false;
+        this.id = User.Next_Id++;
     }
 
     /**

@@ -5,11 +5,12 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SpinnerValueFactory?>
+
 <GridPane fx:controller="sample.Controller.RegistrationActivity"
-           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
     <Text text="Welcome New User! Please enter user info"
@@ -28,11 +29,15 @@
     <PasswordField fx:id="passwordField"
                    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="User Type (Admin,Employee,User):"
+    <Label text="Select User Type:"
            GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
-    <PasswordField fx:id="typeField"
-                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Spinner fx:id="typeSpinner"
+             GridPane.columnIndex="1" GridPane.rowIndex="3" >
+        <valueFactory>
+            <SpinnerValueFactory.ListSpinnerValueFactory value="User"/>
+        </valueFactory>
+    </Spinner>
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="4">

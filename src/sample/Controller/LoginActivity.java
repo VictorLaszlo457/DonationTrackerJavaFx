@@ -78,9 +78,6 @@ public class LoginActivity {
                 || (RegistrationActivity.password).equals("")) {
             actiontarget.setText("Must create a user");
         }
-
-
-        //if (userSet.validUser(name, password)) {
         else {
             if (name.equals(RegistrationActivity.name) && password.equals(RegistrationActivity.password)) {
                 Scene scene = new Scene(root, 300, 275);
