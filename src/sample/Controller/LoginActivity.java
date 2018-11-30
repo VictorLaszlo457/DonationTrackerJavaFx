@@ -37,68 +37,60 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.*;
 import javafx.geometry.*;
 import javafx.scene.control.*;
+import sample.Model.User;
+import sample.Model.UserSet;
 
-public class LoginActivity extends Application {
+public class LoginActivity {
+
+    private String name;
+    private String password;
+    @FXML private TextField usernameField, passwordField;
+    @FXML private Button cancel, login;
     @FXML private Text actiontarget;
-    @FXML private Button registration, login, cancel;
-    @FXML private Stage window;
 
-    public LoginActivity() throws IOException {
+    private UserSet userSet;
+
+    /**
+     * Sets the UserSet to be used by this activity
+     * @param userSet an instance of UserModel
+     */
+    public void setUserSet(UserSet userSet) {
+        this.userSet = userSet;
     }
 
-    //Temporary code to show button was pressed
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        Stage stage = (Stage) login.getScene().getWindow();
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    //Temporary code to show button was pressed
+    //Cancel button
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
+        //If you hit the cancel button, return to the welcome page
         Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
         Scene scene = new Scene(root, 300, 275);
         Stage stage = (Stage) cancel.getScene().getWindow();
-
+        //set the scene upon clicking the cancel button
         stage.setScene(scene);
         stage.show();
     }
 
+    public void onLoginPressed() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../View/MainActivity.fxml"));
+        name = usernameField.getText();
+        password = passwordField.getText();
 
-    //Code to handle the registration button being pressed
-    @FXML protected void handleRegistrationButtonAction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../View/RegistrationPage.fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        Stage stage = (Stage) registration.getScene().getWindow();
+        if ((RegistrationActivity.name).equals("")
+                || (RegistrationActivity.password).equals("")) {
+            actiontarget.setText("Must create a user");
+        }
+        else {
+            if (name.equals(RegistrationActivity.name) && password.equals(RegistrationActivity.password)) {
+                Scene scene = new Scene(root, 300, 275);
+                Stage stage = (Stage) login.getScene().getWindow();
+                System.out.println("login username: " + name);
+                System.out.println("login password: " + password);
+                //set the scene upon clicking the cancel button
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                actiontarget.setText("Username or Password is incorrect");
+            }
+        }
 
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    //Code to draw the window with the chosen scene
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        ScreenController screenController = new ScreenController(scene);
-
-        screenController.addScreen("Login",
-                FXMLLoader.load(getClass().getResource("../View/LoginRegistrationView.fxml")));
-        screenController.addScreen("Welcome",
-                FXMLLoader.load(getClass().getResource("../View/Welcome.fxml")));
-
-        //Screen currently being accessed
-        screenController.activate("Welcome");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    //Launches the window
-    public static void main(String[] args) {
-        launch(args);
     }
 }
-
-
