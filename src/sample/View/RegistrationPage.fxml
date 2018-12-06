@@ -32,10 +32,19 @@
     <Label text="Select User Type:"
            GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
+    <Label text="User types: Admin(1)"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label text="Manager(2)"
+           GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <Label text="Location Employee(3)"
+           GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <Label text="User(4)"
+           GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+
     <Spinner fx:id="typeSpinner"
              GridPane.columnIndex="1" GridPane.rowIndex="3" >
         <valueFactory>
-            <SpinnerValueFactory.ListSpinnerValueFactory value="User"/>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="4" />
         </valueFactory>
     </Spinner>
 
