@@ -46,16 +46,16 @@ public class RegistrationActivity {
     public static String name = "";
     public static String password = "";
     public static String type = "";
+    @FXML public static Integer userType;
     @FXML private TextField usernameField, passwordField;
     @FXML private Button cancel, register;
     @FXML private Text actiontarget;
-    ObservableList<String> types = FXCollections.observableArrayList(
-            "User", "Admin", "Location Employee", "Manager");
-
-
+    @FXML
+    private Spinner<Integer> typeSpinner ;
 
     private UserSet userSet = UserSet.getInstance();
-    //setUserSet(UserSet.getInstance());
+    //private Object typeSpinner;
+    Spinner<Integer> spinner = (Spinner<Integer>) typeSpinner;
 
     /**
      * Sets the UserSet to be used by this activity
@@ -63,28 +63,6 @@ public class RegistrationActivity {
      */
     public void setUserSet(UserSet userSet) {
         this.userSet = userSet;
-    }
-
-    private Spinner<String> createStringSpinner() {
-        //Spinner for user Type
-//        ObservableList<String> types = FXCollections.observableArrayList(
-//                "User", "Admin", "Location Employee", "Manager");
-
-        final Spinner<String> spinner = new Spinner<>();
-
-        //Value Factory
-        SpinnerValueFactory<String> valueFactory =
-                new SpinnerValueFactory.ListSpinnerValueFactory<>(types);
-
-        //Default Value
-        valueFactory.setValue("User");
-
-        spinner.setValueFactory(valueFactory);
-
-        type = spinner.getEditor().getText();
-
-        System.out.println("type: " + type);
-        return spinner;
     }
 
     //Cancel button
@@ -102,41 +80,16 @@ public class RegistrationActivity {
         Parent root = FXMLLoader.load(getClass().getResource("../View/Welcome.fxml"));
         name = usernameField.getText();
         password = passwordField.getText();
-        type = createStringSpinner().getEditor().getText();
+        userType = typeSpinner.getValue();
         System.out.println("username: " + name);
         System.out.println("password: " + password);
+        System.out.println("user type: " + userType);
 
         /*--------------------------------------------*/
         FlowPane rootSpinner = new FlowPane();
         rootSpinner.setHgap(10);
         rootSpinner.setVgap(10);
         rootSpinner.setPadding(new Insets(10));
-
-        //Scene scene = new Scene(root, 400, 200);
-
-        //stage.setTitle("JavaFX Spinner (o7planning.org)");
-        //stage.setScene(scene);
-        //stage.show();
-
-        //Spinner for user Type
-//        ObservableList<String> types = FXCollections.observableArrayList(
-//                "User", "Admin", "Location Employee", "Manager");
-//
-//        final Spinner<String> spinner = new Spinner<>();
-//
-//        //Value Factory
-//        SpinnerValueFactory<String> valueFactory =
-//                new SpinnerValueFactory.ListSpinnerValueFactory<>(types);
-//        spinner.setValueFactory(valueFactory);
-//
-//        //Default Value
-//        valueFactory.setValue("User");
-//
-//        spinner.setValueFactory(valueFactory);
-//
-//        type = spinner.getEditor().getText();
-//
-//        System.out.println("type: " + type);
 
         /*--------------------------------------------*/
 
@@ -149,11 +102,11 @@ public class RegistrationActivity {
 
         User newUser;
 
-        if (type.equals("User")) {
+        if (userType.equals(4)) {
             newUser = new User(password, name);
-        } else if (type.equals("Location Employee")) {
+        } else if (userType.equals(3)) {
             newUser = new LocationEmployee(password, name);
-        } else if (type.equals("Admin")) {
+        } else if (userType.equals(1)) {
             newUser = new Admin(password, name);
         } else {
             newUser = new Manager(password, name);
